@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MemeCard from "../components/Card";
+import { getAllMemes } from "../api/Memes";
 
 const Homepage = () => {
-    return(
-        <div>
-            <MemeCard/>
-        </div>
+  const [data, setData] = useState([]);
 
-    )
-}
+  useEffect(() => {
+    getAllMemes().then((memes) => setData(memes.data.memes));
+  }, []);
 
-export default Homepage
+  return (
+    <div className="row">
+      {data.map((el) => (
+        <MemeCard img={el.url} title={el.name} />
+      ))}
+    </div>
+  );
+};
+
+export default Homepage;
