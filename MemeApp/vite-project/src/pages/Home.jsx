@@ -10,7 +10,7 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div className="row">
+    <div  className="row">
       {data.map((el) => (
         <MemeCard img={el.url} title={el.name} />
       ))}

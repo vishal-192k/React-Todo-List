@@ -14,14 +14,14 @@ const Editpage = () =>{
 
     return(
         <div>
-            <div ref={memeRef} className="meme mt-5 mb-5">
+            <div style={{width:"500px", border: "1px solid"}} ref={memeRef} className="meme mt-5 mb-5">
                 <img src={params.get("url")} width="250px" />
                 {
                     Array(count).fill(0).map(e => <Text />)
                 }
             </div>
             <button onClick={addText}>Edit</button>
-            <button variant = "success" onClick={(e) =>{}}>Save</button>
+            <button variant = "success" onClick={(e) =>{exportComponentAsJPEG(memeRef)}}>Save</button>
            
         </div>
         
